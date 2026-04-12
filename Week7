@@ -1,0 +1,47 @@
+balance = 1000  # starting balance
+
+while True:
+    print("\n=== Money Withdrawal System ===")
+    print("1. Withdraw Money")
+    print("2. Check Balance")
+    print("3. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        try:
+            amount = float(input("Enter amount to withdraw: "))
+
+            if amount > balance:
+                print("Insufficient funds!")
+
+                print("\nOptions:")
+                print("1. Try again")
+                print("2. Check balance")
+                print("3. Exit")
+
+                option = input("Choose an option: ")
+
+                if option == "2":
+                    print("Your balance is:", balance)
+                elif option == "3":
+                    print("Thank you for using the system.")
+                    break
+
+            else:
+                balance -= amount
+                print("Withdrawal successful!")
+                print("Remaining balance:", balance)
+
+        except ValueError:
+            print("Invalid input! Please enter a number.")
+
+    elif choice == "2":
+        print("Your balance is:", balance)
+
+    elif choice == "3":
+        print("Thank you for using the system.")
+        break
+
+    else:
+        print("Invalid choice. Please try again.")
